@@ -2,10 +2,13 @@ import * as C from "./AppStyles";
 const App = () => {
 
   return (
-    <div>
-      <C.Botao>Olá mundo</C.Botao>
-      <C.Botao cor="#ffa2a2">Olá mundo</C.Botao>
-      <C.Botao cor="f4f1f1">Olá mundo</C.Botao>
+    <div className="bg-blue-300 p-5">
+      <input 
+      className="outline-none border border-transparent bg-white p-3 rounded focus:ring-2 focus:ring-blue-700"
+      type="text"
+      placeholder="Digite alguma coisa" 
+      />
+      <button className="ml-2 p-3 bg-blue-400 rounded text-white font-bold hover:bg-blue-500">Clique aqui</button>
     </div>
   );
 }
