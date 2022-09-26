@@ -1,7 +1,7 @@
-import './style.css';
+import styles from './style.module.css';
 
 export const Button = () => {
     return (
-        <button className="button-default">Clique aqui</button>
+        <button className={styles.buttonDefault}>Clique aqui</button>
     );
 }
