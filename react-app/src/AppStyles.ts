@@ -19,4 +19,8 @@ export const Botao = styled.button<BotaoProps>`
     & + & {
         margin-left: 10px
     }
+
+    @media (max-width: 500px) {
+        background-color: red;
+    }
 `;
