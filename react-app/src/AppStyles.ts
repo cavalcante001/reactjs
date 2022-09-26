@@ -15,4 +15,8 @@ export const Botao = styled.button<BotaoProps>`
     padding: 16px 32px;
     cursor: pointer;
     background-color: ${props => props.cor ? props.cor : '#ccc'};
+
+    & + & {
+        margin-left: 10px
+    }
 `;
