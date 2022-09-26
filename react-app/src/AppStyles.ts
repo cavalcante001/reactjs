@@ -6,9 +6,13 @@ export const Container = styled.div`
     padding: 20px;
 `;
 
-export const Botao = styled.button`
+type BotaoProps = {
+    cor?: string
+}
+export const Botao = styled.button<BotaoProps>`
     font-size: 16px;
     border: 0;
     padding: 16px 32px;
     cursor: pointer;
+    background-color: ${props => props.cor ? props.cor : '#ccc'};
 `;
