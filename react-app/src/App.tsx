@@ -1,13 +1,18 @@
-import { Button } from './components/Button';
+import { Pessoa } from "./components/Pessoa";
 const App = () => {
 
-  const handleButtonEvent = (text: string) => {
-    alert('Frase do app: ' +text)
-  }
+  const lista = [
+    {name: 'Paulo', age:23},
+    {name: 'Andreia',age:38},
+    {name: 'João', age:60},
+    {name: 'Rosana', age: 43}
+  ];
 
   return (
     <div>
-      <Button text="Clique aqui" fnButton={handleButtonEvent}/>
+      {lista.map((item, index) => (
+        <Pessoa key={index} data={item}/>
+      ))}
     </div>
   );
 }
