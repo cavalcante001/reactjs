@@ -1,9 +1,9 @@
-import { Button } from "./components/Button";
+import * as C from "./AppStyles";
 const App = () => {
 
   return (
     <div>
-      <Button />
+      <C.Botao>Olá mundo</C.Botao>
     </div>
   );
 }
