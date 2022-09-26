@@ -2,16 +2,27 @@ import { useState } from "react";
 
 const App = () => {
 
-  const [numero, setNumero] = useState(0);
+  const [n, setN] = useState(0);
 
   const handleClick = () => {
-    setNumero(2);
+    alert('clicou');
+  }
+
+  const handleMinus = () => {
+    setN(n-1);
+  }
+
+  const handleMore = () => {
+    setN(n + 1);
+    
   }
 
   return (
     <div>
-      <p>O número é: {numero}</p>
-      <button onClick={handleClick}>Clique aqui</button>
+      <button onClick={handleMinus}>-</button>
+      <div>{n}</div>
+      <button onClick={handleClick}>Clique aqui</button><br/>
+      <button onClick={handleMore}>+</button>
     </div>
   );
 }
