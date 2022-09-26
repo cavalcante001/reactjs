@@ -1,15 +1,12 @@
-import { Header } from './components/Header';
-import { Image } from './components/Image';
-
 const App = () => {
+
+  const handleClick = () => {
+    alert('Clicou!');
+  }
+
   return (
     <div>
-      <Header title="Título 1"/>
-      <Image legend="Logo do google">
-        <img src="https://www.google.com.br/logos/google.jpg"></img>
-      </Image>
-
-      Olá mundo
+      <button onClick={handleClick}>Clique aqui</button>
     </div>
   );
 }
