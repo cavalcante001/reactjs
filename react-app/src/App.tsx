@@ -1,21 +1,8 @@
-import { useState } from "react";
-import { Pessoa } from "./components/Pessoa";
 const App = () => {
-
-  const [show, setShow] = useState(false);
-
-  const handleClick = () => {
-    setShow(!show);
-  }
 
   return (
     <div>
-      <button onClick={handleClick}>MOSTRAR</button>
-      {show &&
-        <div>
-          Bla bla bla...
-        </div>
-      }
+      <button style={{ backgroundColor: '#043', color: '#fff' }}>Clique aqui</button>
     </div>
   );
 }
