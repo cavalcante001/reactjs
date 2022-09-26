@@ -1,8 +1,9 @@
+import { Button } from "./components/Button";
 const App = () => {
 
   return (
     <div>
-      <button style={{ backgroundColor: '#043', color: '#fff' }}>Clique aqui</button>
+      <Button />
     </div>
   );
 }
