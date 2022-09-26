@@ -1,10 +1,13 @@
-import React from 'react';
+let n1:number = 10;
+let n2:number = 3;
+
+function somar(n1: number,n2:number):number {
+  return n1 + n2;
+}
 
 const App = () => {
-  // return React.createElement('a', {href: 'https://www.google.com'}, 'Clique aqui!');
-  // jsx - depois compila isso utilizando babel
   return (
-    <a href="https://www.google.com">Clique aqui</a>
+    <div>Multiplicação: {somar(n1, n2)}</div> // {} chamado de expressão
   );
 }
 
