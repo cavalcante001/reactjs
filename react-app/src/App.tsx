@@ -1,8 +1,4 @@
-import {Routes, Route} from 'react-router-dom';
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { AboutItem } from './pages/AboutItem';
-import { NotFound } from './pages/NotFound';
+import { MainRoutes } from './routes/MainRoutes';
 const App = () => {
 
   return (
@@ -12,12 +8,7 @@ const App = () => {
     </header>
     <hr/>
     <div className="py-4">
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/sobre" element={<About />}/>
-        <Route path="/sobre/:slug" element={<AboutItem />}/>
-        <Route path="*" element={<NotFound />}/>
-      </Routes>
+      <MainRoutes />
     </div>
     <hr />
       <footer>
