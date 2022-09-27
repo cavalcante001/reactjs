@@ -1,7 +1,11 @@
 export const About = () => {
     return (
         <div>
-            Página SOBRE
+            Página sobre:
+            <ul>
+                <li>Paulo</li>
+                <li>Henrique</li>
+            </ul>
         </div>
     );
 }
