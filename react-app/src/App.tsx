@@ -1,15 +1,25 @@
-import * as C from "./AppStyles";
+import {Routes, Route} from 'react-router-dom';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
 const App = () => {
 
   return (
-    <div className="bg-blue-300 p-5">
-      <input 
-      className="outline-none border border-transparent bg-white p-3 rounded focus:ring-2 focus:ring-blue-700"
-      type="text"
-      placeholder="Digite alguma coisa" 
-      />
-      <button className="ml-2 p-3 bg-blue-400 rounded text-white font-bold hover:bg-blue-500">Clique aqui</button>
+   <div className="p-4">
+    <header>
+      <h1>Título do site</h1>
+    </header>
+    <hr/>
+    <div className="py-4">
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/sobre" element={<About />}/>
+      </Routes>
     </div>
+    <hr />
+      <footer>
+    Todos os direitos reservados.
+    </footer>
+   </div>
   );
 }
 
