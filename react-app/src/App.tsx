@@ -9,28 +9,37 @@ const App = () => {
     handleLoadButton();
   }, []);
 
-  // const handleLoadButton = () => {
-  //   fetch('http://localhost.com:5003/categories')
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((json) => {
-  //       setCategories(json.categories);
-  //     })
-
-  // }
-
-  const handleLoadButton = async () => {
-    setLoading(true);
-    const req = await fetch("http://localhost.com:5003/categories");
-    const json = await req.json();
-    setCategories(json.categories);
-    setLoading(false);
+  const handleLoadButton = () => {
+    fetch("http://localhost.com:5003/categories")
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setCategories(json.categories);
+      })
+      .catch((e) => {
+        setLoading(false);
+        setCategories([]);
+        console.log(e);
+      });
   };
+
+  // const handleLoadButton = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const req = await fetch("http://localhost.com:5003/categories");
+  //     const json = await req.json();
+  //     setCategories(json.categories);
+  //     setLoading(false);
+  //   } catch (e) {
+  //     setLoading(false);
+  //     alert("Requisição ruim");
+  //   }
+  // };
 
   return (
     <div>
-      {!loading && (
+      {!loading && categories.length > 0 && (
         <>
           <button
             className="block bg-blue-400 p-2 rounded"
@@ -41,8 +50,8 @@ const App = () => {
           <div>Total de categorias: {categories.length}</div>
 
           <div className="grid grid-cols-5">
-            {categories.map((item) => (
-              <div>
+            {categories.map((item, index) => (
+              <div key={index}>
                 <p>{item.name}</p>
                 <img src={item.img} className="w-10" />
               </div>
@@ -51,6 +60,8 @@ const App = () => {
         </>
       )}
       {loading && <div>Carregando...</div>}
+
+      {!loading && categories.length === 0 && <div>Tente mais tarde...</div>}
     </div>
   );
 };
