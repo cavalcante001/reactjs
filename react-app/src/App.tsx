@@ -1,26 +1,24 @@
-import { useState, useEffect, ChangeEventHandler, ChangeEvent } from 'react';
+import { useState } from "react";
 
 const App = () => {
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [fullName, setFullName] = useState('');
+  const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    setFullName(`${name} ${lastName}`);    
-  }, [name, lastName]);
+  const handleLoadButton = () => {
+    fetch('http://localhost.com:5003/categories')
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setCategories(json.categories);
+      })
 
-  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName( e.target.value )
   }
-  const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setLastName( e.target.value );
-  }
-  
+    
   return (
-    <div className='flex flex-col'>
-      <input type="text" placeholder="Digite seu nome" value={name} onChange={handleNameChange}/>
-      <input type="text" placeholder="Digite seu sobrenome" value={lastName} onChange={handleLastNameChange} />
-      <p>Nome Completo {fullName};</p>
+    <div>
+      <button className="block bg-blue-400 p-2 rounded" onClick={handleLoadButton}>Carregar categorias</button>
+      Total de categorias: {categories.length}
+
     </div>
   );
 }
