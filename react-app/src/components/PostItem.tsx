@@ -6,8 +6,8 @@ type Props = {
 export const PostItem = ({ data }: Props) => {
   return (
     <div className="grid grid-cols-5">
-      {data.map((item) => (
-        <div>
+      {data.map((item, index) => (
+        <div key={index}>
           <p>{item.name}</p>
           <img src={item.img} className="w-10" />
         </div>

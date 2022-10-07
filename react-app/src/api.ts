@@ -1,19 +1,15 @@
+import axios from 'axios';
 const BASE = 'http://localhost.com:5003';
 
 export const api = {
     getCategories: async () => {
-        const req = await fetch(`${BASE}/categories`);
-        const json = await req.json();
-        return json.categories;
+        const req = await axios.get(`${BASE}/categories`);
+        return req.data.categories;
     }, 
     postToken: async (email: string, password: string) => {
-        const req = await fetch(`${BASE}/user/signin`, {
-            method: "POST",
-            body: JSON.stringify({ email: email, password: password }),
-            headers: {
-              "Content-type": "application/json",
-            },
-          });
-          return await req.json();
+        const response = await axios.post(`${BASE}/user/signin`, {
+          email, password
+        });
+        return response.data;
     }
 }
